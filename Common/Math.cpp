@@ -29,7 +29,7 @@ const POINT_ POINT_POSITIVE_Y = POINT_( 0,  1);
 
 
 //HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-// WEKTOR 2D, 3D i 4D Z FLOATÓW
+// WEKTOR 2D, 3D i 4D Z FLOATÃ“W
 
 const VEC2 VEC2_ZERO = VEC2(0.0f, 0.0f);
 const VEC2 VEC2_ONE  = VEC2(1.0f, 1.0f);
@@ -60,7 +60,7 @@ const VEC4 VEC4_NEGATIVE_W = VEC4(0.0f, 0.0f, 0.0f, -1.0f);
 
 
 /*
-Algorytmy ortogonalizacji wektorów to wzór Gram-Schmidt na podstwie ksi¹¿ki "3D
+Algorytmy ortogonalizacji wektorÃ³w to wzÃ³r Gram-Schmidt na podstwie ksiÂ¹Â¿ki "3D
 Math Primer for Graphics and Game Development", str. 134.
 */
 
@@ -92,7 +92,7 @@ void Orthogonalize(VEC3 *OutR1, VEC3 *OutR2, VEC3 *OutR3, const VEC3 &R1, const 
 		std::swap(psrc3, pdst3);
 	}
 
-	// Na koniec ¿eby siê upewniæ ¿e s¹ doskonale prostopad³e
+	// Na koniec Â¿eby siÃª upewniÃ¦ Â¿e sÂ¹ doskonale prostopadÂ³e
 	Orthogonalize_Fast(OutR1, OutR2, OutR3, *psrc1, *psrc2, *psrc3);
 }
 
@@ -107,7 +107,7 @@ void PerpedicularVectors(VEC3 *Out1, VEC3 *Out2, const VEC3 &v)
 
 
 //HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-// TRÓJK¥T
+// TRÃ“JKÂ¥T
 
 float TriangleArea(const VEC2 &p1, const VEC2 &p2, const VEC2 &p3)
 {
@@ -137,7 +137,7 @@ float TrianglePerimeter(const VEC3 &p1, const VEC3 &p2, const VEC3 &p3)
 
 void CalcBarycentric(const VEC2 &p, const VEC2 &p1, const VEC2 &p2, const VEC2 &p3, float *out_e, float *out_f, float *out_g)
 {
-	// Na podstawie ksi¹¿ki:
+	// Na podstawie ksiÂ¹Â¿ki:
 	// Real-Time Collision Detection, Christer Ericson
 	VEC2 v0 = p2 - p1;
 	VEC2 v1 = p3 - p1;
@@ -154,11 +154,11 @@ void CalcBarycentric(const VEC2 &p, const VEC2 &p1, const VEC2 &p2, const VEC2 &
 }
 
 /*
-Ta wersja jest mniej optymalna, ni¿ ta poniej z rzutowaniem.
+Ta wersja jest mniej optymalna, niÂ¿ ta poniej z rzutowaniem.
 
 void CalcBarycentric(const VEC3 &p, const VEC3 &p1, const VEC3 &p2, const VEC3 &p3, float *out_e, float *out_f, float *out_g)
 {
-	// Na podstawie ksi¹¿ki:
+	// Na podstawie ksiÂ¹Â¿ki:
 	// Real-Time Collision Detection, Christer Ericson
 	VEC3 v0 = p2 - p1;
 	VEC3 v1 = p3 - p1;
@@ -177,7 +177,7 @@ void CalcBarycentric(const VEC3 &p, const VEC3 &p1, const VEC3 &p2, const VEC3 &
 
 void CalcBarycentric(const VEC3 &p, const VEC3 &p1, const VEC3 &p2, const VEC3 &p3, const VEC3 *Normal, float *out_e, float *out_f, float *out_g)
 {
-	// Na podstawie ksia¿ki "3D Math Primer for Graphics and Game Development", str. 263.
+	// Na podstawie ksiaÂ¿ki "3D Math Primer for Graphics and Game Development", str. 263.
 
 	// Compute surface normal using cross product. In many cases
 	// this step could be skipped, since we would have the surface
@@ -247,8 +247,7 @@ void CalcBarycentric(const VEC3 &p, const VEC3 &p1, const VEC3 &p2, const VEC3 &
 }
 
 /*
-Funkcje TriangleInscribedCircle i TriangleCircumscribedCircle s¹ napisane na
-podstawie nVidia SDK, modu³ nv_algebra.
+Functions TriangleInscribedCircle and TriangleCircumscribedCircle are based on nVidia SDK, moduÂ³ nv_algebra.
 */
 
 void TriangleInscribedCircle(VEC2 *OutCenter, float *OutRadius, const VEC2 &v1, const VEC2 &v2, const VEC2 &v3)
@@ -395,7 +394,7 @@ void TriangleCircumscribedCircle(VEC3 *OutCenter, float *OutRadius, const VEC3 &
 
 
 //HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-// PROSTOK¥T
+// PROSTOKÂ¥T
 
 const RECTI RECTI_ZERO = RECTI(0, 0, 0, 0);
 const RECTI RECTI_ZERO_ONE = RECTI(0, 0, 1, 1);
@@ -530,7 +529,7 @@ void BOX::GetOct(BOX *out, uint index) const
 
 bool ObbToObb(const OBB &a, const OBB &b)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	float ra, rb;
 	float R[3][3], AbsR[3][3];
@@ -701,12 +700,12 @@ void ColorToStr(tstring *Out, const COLORF &Color, char Format)
 		assert(0 && "Invalid format char in ColorToStr for COLORF.");
 }
 
-// [Funkcja wewnêtrzna]
-// Str jest w formacie floatów R,G,B lub A,R,G,B.
+// Internal function
+// Str is in floats using format R,G,B or A,R,G,B.
 bool StrFloatsToColorf(COLORF *Out, const tstring &Str, size_t CommaPos1)
 {
 	// Pozycja pierwszego przecinka jest w parametrze
-	// ZnajdŸ nastêpne przecinki
+	// ZnajdÂŸ nastÃªpne przecinki
 	size_t CommaPos2 = Str.find(_T(','), CommaPos1+1);
 	if (CommaPos2 == tstring::npos) return false;
 	size_t CommaPos3 = Str.find(_T(','), CommaPos2+1);
@@ -732,7 +731,7 @@ bool StrFloatsToColorf(COLORF *Out, const tstring &Str, size_t CommaPos1)
 bool StrToColor(COLOR *Out, const tstring &Str)
 {
 	size_t CommaPos1 = Str.find(_T(','));
-	// Jest przecinek - s¹ floaty
+	// Jest przecinek - sÂ¹ floaty
 	if (CommaPos1 != tstring::npos)
 	{
 		COLORF Colorf;
@@ -740,7 +739,7 @@ bool StrToColor(COLOR *Out, const tstring &Str)
 		*Out = ColorfToColor(Colorf);
 		return true;
 	}
-	// Nie ma przecinków
+	// Nie ma przecinkÃ³w
 	tstring LStr;
 	LowerCase(&LStr, Str);
 	// Standardowe nazwy
@@ -773,20 +772,20 @@ bool StrToColor(COLOR *Out, const tstring &Str)
 		// AARRGGBB
 		else if (Str.size() == 8)
 			return StrToUint(&Out->ARGB, Str, 16) == 0;
-		// Z³a d³ugoœæ
+		// ZÂ³a dÂ³ugoÂœÃ¦
 		else return false;
 	}
-	// To odnoœnie standardowych nazw
+	// To odnoÂœnie standardowych nazw
 	return true;
 }
 
 bool StrToColor(COLORF *Out, const tstring &Str)
 {
 	size_t CommaPos1 = Str.find(_T(','));
-	// Jest przecinek - s¹ floaty
+	// Jest przecinek - sÂ¹ floaty
 	if (CommaPos1 != tstring::npos)
 		return StrFloatsToColorf(Out, Str, CommaPos1);
-	// Nie ma przecinków
+	// Nie ma przecinkÃ³w
 	tstring LStr;
 	LowerCase(&LStr, Str);
 	// Standardowe nazwy
@@ -826,10 +825,10 @@ bool StrToColor(COLORF *Out, const tstring &Str)
 			ColorToColorf(Out, c);
 			return true;
 		}
-		// Z³a d³ugoœæ
+		// ZÂ³a dÂ³ugoÂœÃ¦
 		else return false;
 	}
-	// To do standardowych kolorów
+	// To do standardowych kolorÃ³w
 	Out->A = 1.0f;
 	return true;
 }
@@ -904,7 +903,7 @@ void RgbToHsb(float *OutHue, float *OutSaturation, float *OutBrightness, const C
 }
 
 //HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-// P£ASZCZYZNA
+// PLANE
 
 const PLANE PLANE_ZERO = PLANE(0.0f, 0.0f, 0.0f, 0.0f);
 const PLANE PLANE_POSITIVE_X = PLANE(1.0f, 0.0f, 0.0f, 0.0f);
@@ -1366,7 +1365,7 @@ bool StrToMatrix(MATRIX *Out, const tstring &Str)
 	return true;
 }
 
-/* Wzór mno¿enia wektora przez macierz:
+/* WzÃ³r mnoÂ¿enia wektora przez macierz:
 	Out->x = v.x * m._11 + v.y * m._21 + v.z * m._31 + v.w * m._41;
 	Out->y = v.x * m._12 + v.y * m._22 + v.z * m._32 + v.w * m._42;
 	Out->z = v.x * m._13 + v.y * m._23 + v.z * m._33 + v.w * m._43;
@@ -1389,7 +1388,7 @@ void Transform(VEC2 *Out, const VEC2 &v, const MATRIX &m)
 
 void TransformCoord(VEC2 *Out, const VEC2 &v, const MATRIX &m)
 {
-	VEC3 Out1; // To tak naprawdê [X,Y,0,W]
+	VEC3 Out1; // To tak naprawdÃª [X,Y,0,W]
 	Out1.x = v.x * m._11 + v.y * m._21 + m._41;
 	Out1.y = v.x * m._12 + v.y * m._22 + m._42;
 	Out1.z = v.x * m._14 + v.y * m._24 + m._44;
@@ -1552,7 +1551,7 @@ void TransformBox(BOX *Out, const BOX &In, const MATRIX &M)
 
 void TransformBox(BOX *Out, const BOX &In, const MATRIX &M)
 {
-	/* Nowy algorytm, na podstawie ksi¹¿ki:
+	/* Nowy algorytm, na podstawie ksiÂ¹Â¿ki:
 	Real-Time Collision Detection, Christer Ericson
 	*/
 
@@ -1597,7 +1596,7 @@ void TransformBoxCoord(BOX *Out, const BOX &In, const MATRIX &M)
 }
 
 /*
-Wzór wype³niania macierzy (ta jest jednostkowa):
+WzÃ³r wypeÂ³niania macierzy (ta jest jednostkowa):
 	Out->_11 = 1.0f; Out->_12 = 0.0f; Out->_13 = 0.0f; Out->_14 = 0.0f;
 	Out->_21 = 0.0f; Out->_22 = 1.0f; Out->_23 = 0.0f; Out->_24 = 0.0f;
 	Out->_31 = 0.0f; Out->_32 = 0.0f; Out->_33 = 1.0f; Out->_34 = 0.0f;
@@ -1634,10 +1633,10 @@ void MatrixGetTranslation(VEC3 *OutTranslation, const MATRIX &m)
 
 void AxesToMatrix(MATRIX *Out, const VEC3 &AxisX, const VEC3 &AxisY, const VEC3 &AxisZ)
 {
-	// To by³o Ÿle! Nie wiem sk¹d siê to wziê³o, ale zgodnie z ksi¹¿k¹
+	// To byÂ³o ÂŸle! Nie wiem skÂ¹d siÃª to wziÃªÂ³o, ale zgodnie z ksiÂ¹Â¿kÂ¹
 	// "3D Math Primer for Graphics and Game Developers" oraz z moimi obliczeniami
-	// kiedy wektory s¹ wierszowe i mno¿one prez macierz w kolejnoœci wektor*macierz
-	// (czyli tak jak w DirectX) to do tej macierzy wpisujemy poszczególne wektory osi
+	// kiedy wektory sÂ¹ wierszowe i mnoÂ¿one prez macierz w kolejnoÂœci wektor*macierz
+	// (czyli tak jak w DirectX) to do tej macierzy wpisujemy poszczegÃ³lne wektory osi
 	// w wierszach, a nie w kolumnach!
 	//Out->_11 = AxisX.x; Out->_12 = AxisY.x; Out->_13 = AxisZ.x; Out->_14 = 0.0f;
 	//Out->_21 = AxisX.y; Out->_22 = AxisY.y; Out->_23 = AxisZ.y; Out->_24 = 0.0f;
@@ -1653,7 +1652,7 @@ void AxesToMatrix(MATRIX *Out, const VEC3 &AxisX, const VEC3 &AxisY, const VEC3 
 
 void AxesToMatrixTranslation(MATRIX *Out, const VEC3 &Origin, const VEC3 &AxisX, const VEC3 &AxisY, const VEC3 &AxisZ)
 {
-	// Na podstawie powy¿szej (w wersji ju¿ poprawnionej):
+	// Na podstawie powyÂ¿szej (w wersji juÂ¿ poprawnionej):
 	Out->_11 = AxisX.x;  Out->_12 = AxisX.y;  Out->_13 = AxisX.z;  Out->_14 = 0.0f;
 	Out->_21 = AxisY.x;  Out->_22 = AxisY.y;  Out->_23 = AxisY.z;  Out->_24 = 0.0f;
 	Out->_31 = AxisZ.x;  Out->_32 = AxisZ.y;  Out->_33 = AxisZ.z;  Out->_34 = 0.0f;
@@ -1794,7 +1793,7 @@ void RotationAxisLH(MATRIX *Out, const VEC3 &Axis, float Angle)
 	Out->_41 = 0.0f;                     Out->_42 = 0.0f;                     Out->_43 = 0.0f;                     Out->_44 = 1.0f;
 }
 
-/* Tu by³y funkcje takie jak ta, wszystkie 6 kombinacji, ale one s¹ 1. powolne 2. niepotrzebne
+/* Tu byÂ³y funkcje takie jak ta, wszystkie 6 kombinacji, ale one sÂ¹ 1. powolne 2. niepotrzebne
 void RotationYZX(MATRIX *Out, float Yaw, float Pitch, float Roll)
 {
 	MATRIX my, mx, mz, Out1;
@@ -1815,7 +1814,7 @@ void RotationYawPitchRoll(MATRIX *Out, float Yaw, float Pitch, float Roll)
 	//Mul(&Out1, mz, mx);
 	//Mul(Out, Out1, my);
 
-	// Wersja rozpisana, du¿o szybsza:
+	// Wersja rozpisana, duÂ¿o szybsza:
 	float sy = sinf(Yaw), cy = cosf(Yaw);
 	float sp = sinf(Pitch), cp = cosf(Pitch);
 	float sr = sinf(Roll), cr = cosf(Roll);
@@ -1838,7 +1837,7 @@ void RotationYawPitchRoll(MATRIX *Out, const VEC3 &EulerAngles)
 
 void RotationYawPitchRollInv(MATRIX *Out, float Yaw, float Pitch, float Roll)
 {
-	// Wersja rozpisana, du¿o szybsza:
+	// Wersja rozpisana, duÂ¿o szybsza:
 	float sy = sinf(Yaw), cy = cosf(Yaw);
 	float sp = sinf(Pitch), cp = cosf(Pitch);
 	float sr = sinf(Roll), cr = cosf(Roll);
@@ -1859,11 +1858,11 @@ void RotationYawPitchRollInv(MATRIX *Out, const VEC3 &EulerAngles)
 	Out->_41 = 0.0f;            Out->_42 = 0.0f;            Out->_43 = 0.0f;  Out->_44 = 1.0f;
 }
 
-// Napisane na podstawie ksi¹¿ki "3D Math Primer for Graphics and Game Development".
-// Niestety nie dzia³a.
-// Po wygenerowaniu macierzy za pomoc¹ funkcji RotationYawPitchRoll (próbowa³em te¿ RotationYawPitchRollInv)
-// i wyci¹gniêciu z powrotem k¹tów Eulera wychodz¹ zupe³nie inne liczby - nie przeciwne, nie podobne,
-// nie zerowe czy INF, po prostu zupe³nie inne i nie wiem dlaczego :(
+// Napisane na podstawie ksiÂ¹Â¿ki "3D Math Primer for Graphics and Game Development".
+// Niestety nie dziaÂ³a.
+// Po wygenerowaniu macierzy za pomocÂ¹ funkcji RotationYawPitchRoll (prÃ³bowaÂ³em teÂ¿ RotationYawPitchRollInv)
+// i wyciÂ¹gniÃªciu z powrotem kÂ¹tÃ³w Eulera wychodzÂ¹ zupeÂ³nie inne liczby - nie przeciwne, nie podobne,
+// nie zerowe czy INF, po prostu zupeÂ³nie inne i nie wiem dlaczego :(
 /*void RotationMatrixToEulerAngles(const MATRIX &m, float *Yaw, float *Pitch, float *Roll)
 {
 	// Extract pitch from m23, being careful for domain errors with asin().
@@ -2145,7 +2144,7 @@ void CalcQuaternionAxis(VEC3 *Out, const QUATERNION &Q)
 }
 
 // == Do klasy QUATERNION ==
-// Wersja stara sprzed odwrócenia kolejnoœci:
+// Wersja stara sprzed odwrÃ³cenia kolejnoÂœci:
 // QUATERNION operator * (const QUATERNION &q) const { return QUATERNION(q.x * w + q.y * z - q.z * y + q.w * x, q.y * w - q.x * z + q.w * y + q.z * x, q.z * w + q.w * z + q.x * y - q.y * x, q.w * w - q.z * z - q.y * y - q.x * x); }
 // QUATERNION & operator *= (const QUATERNION &q) { QUATERNION R; R.x = q.x * w + q.y * z - q.z * y + q.w * x; R.y = q.y * w - q.x * z + q.w * y + q.z * x; R.z = q.z * w + q.w * z + q.x * y - q.y * x; R.w = q.w * w - q.z * z - q.y * y - q.x * x; *this = R; return *this; }
 
@@ -2176,7 +2175,7 @@ void Sub(QUATERNION *Out, const QUATERNION &q1, const QUATERNION &q2)
 
 void Mul(QUATERNION *Out, const QUATERNION &q1, const QUATERNION &q2)
 {
-/* Stara wersja - chyba identyczna, ale to ni¿ej napisane ³adnie
+/* Stara wersja - chyba identyczna, ale to niÂ¿ej napisane Â³adnie
 	Out->x = q1.w * q2.x + q1.z * q2.y - q1.y * q2.z + q1.x * q2.w;
 	Out->y = q1.w * q2.y - q1.z * q2.x + q1.y * q2.w + q1.x * q2.z;
 	Out->z = q1.w * q2.z + q1.z * q2.w + q1.y * q2.x - q1.x * q2.y;
@@ -2187,7 +2186,7 @@ void Mul(QUATERNION *Out, const QUATERNION &q1, const QUATERNION &q2)
 	Out->z = q1.w*q2.z + q1.z*q2.w + q1.y*q2.x - q1.x*q2.y;
 	Out->w = q1.w*q2.w - q1.x*q2.x - q1.y*q2.y - q1.z*q2.z;
 
-	Nowa wersja odwrócona, ¿eby mno¿enie by³o nie od koñca jak w teorii tylko tak jak w macierzach.
+	Nowa wersja odwrÃ³cona, Â¿eby mnoÂ¿enie byÂ³o nie od koÃ±ca jak w teorii tylko tak jak w macierzach.
 */
 
 	Out->x = q1.w*q2.x + q1.x*q2.w + q1.y*q2.z - q1.z*q2.y;
@@ -2275,10 +2274,10 @@ Poprawna, ale wolniejsza.
 
 Ta co jest aktualnie niezakomentowana.
 
-Dzia³a tak samo jak wersja 1 (wynik testu: 99.9% przypadków), ale jest
+DziaÂ³a tak samo jak wersja 1 (wynik testu: 99.9% przypadkÃ³w), ale jest
 optymalniejsza.
 
-Na podstawie kodu z ksi¹¿ki "Game Programming Gems", tom 5, rozdz. 1.6
+Na podstawie kodu z ksiÂ¹Â¿ki "Game Programming Gems", tom 5, rozdz. 1.6
 "Improved Frustum Culling", Frank Puig Placeres.
 */
 
@@ -2318,13 +2317,13 @@ Poprawna, ale wolniejsza.
 
 Ta co jest aktualnie niezakomentowana.
 
-Sprawdzone, ¿e dzia³a tak samo jak wersja 1 (wynik testu: 100% przypadków), ale
+Sprawdzone, Â¿e dziaÂ³a tak samo jak wersja 1 (wynik testu: 100% przypadkÃ³w), ale
 jest optymalniejsza.
 
-U¿ywa tak naprawdê rozpisanego przekszta³cenia na macierz obrotu i pomno¿enia
-wektora przez t¹ macierz.
+UÂ¿ywa tak naprawdÃª rozpisanego przeksztaÂ³cenia na macierz obrotu i pomnoÂ¿enia
+wektora przez tÂ¹ macierz.
 
-Na podstawie kodu z ksi¹¿ki "Game Programming Gems", tom 5, rozdz. 1.6
+Na podstawie kodu z ksiÂ¹Â¿ki "Game Programming Gems", tom 5, rozdz. 1.6
 "Improved Frustum Culling", Frank Puig Placeres.
 */
 
@@ -2449,7 +2448,7 @@ void QuaternionRotationZ(QUATERNION *Out, float a)
 
 void QuaternionDiff(QUATERNION *Out, const QUATERNION &a, const QUATERNION &b)
 {
-	// Ta funkcja dzia³a tak a nie inaczej dlatego ¿e mno¿enie mamy odwrotnie, inaczej by³by inny wzór.
+	// Ta funkcja dziaÂ³a tak a nie inaczej dlatego Â¿e mnoÂ¿enie mamy odwrotnie, inaczej byÂ³by inny wzÃ³r.
 	QUATERNION a_inv; Inverse(&a_inv, a);
 	Mul(Out, a_inv, b);
 }
@@ -2547,8 +2546,8 @@ void Exp(QUATERNION *Out, const QUATERNION &q)
 
 void Pow(QUATERNION *InOut, float t)
 {
-	// Kwaternion identycznioœciowy ma daæ w wyniku ten sam kwaternion,
-	// dlatego trzeba to sprawdzaæ szczególnie, bo inaczej by³oby dzielenie przez 0.
+	// Kwaternion identycznioÂœciowy ma daÃ¦ w wyniku ten sam kwaternion,
+	// dlatego trzeba to sprawdzaÃ¦ szczegÃ³lnie, bo inaczej byÂ³oby dzielenie przez 0.
 	if (!float_equal(InOut->w, 1.0f))
 	{
 		// Extract the half angle alpha (alpha = theta/2)
@@ -2566,11 +2565,11 @@ void Pow(QUATERNION *InOut, float t)
 }
 
 /*
-INTERPOLACJA SFERYCZNA KWATERNIONÓW
+INTERPOLACJA SFERYCZNA KWATERNIONÃ“W
 
 ======== Wersja 1 ========
 
-Liczy³a Ÿle, dawa³a wyniki inne ni¿ D3DX.
+LiczyÂ³a ÂŸle, dawaÂ³a wyniki inne niÂ¿ D3DX.
 
 	float costheta = q1.w * q2.w + q1.x * q2.x + q1.y * q2.y + q1.z * q2.z;
 	float theta = acosf(costheta);
@@ -2599,21 +2598,21 @@ Liczy³a Ÿle, dawa³a wyniki inne ni¿ D3DX.
 
 ======== Wersja 2 ========
 
-Ta która jest poni¿ej niezakomentowana.
+Ta ktÃ³ra jest poniÂ¿ej niezakomentowana.
 
-Mia³a w nag³ówku taki komentarz (niezgodny z prawd¹):
+MiaÂ³a w nagÂ³Ã³wku taki komentarz (niezgodny z prawdÂ¹):
 
-// (Ta wersja, pochodz¹ca z ksi¹¿ki "3D Math Primer for Graphics and Game Development"
-// daje wyniki zgodne z D3DX w dok³adnie po³owie przypadów - nie wiem dlaczego.
-// Próbowa³em zakomentowaæ sekcje "if (cosOmega < 0.0f)", "if (cosOmega > 0.9999f)",
-// ich kombinacje i wci¹¿ to samo.)
+// (Ta wersja, pochodzÂ¹ca z ksiÂ¹Â¿ki "3D Math Primer for Graphics and Game Development"
+// daje wyniki zgodne z D3DX w dokÂ³adnie poÂ³owie przypadÃ³w - nie wiem dlaczego.
+// PrÃ³bowaÂ³em zakomentowaÃ¦ sekcje "if (cosOmega < 0.0f)", "if (cosOmega > 0.9999f)",
+// ich kombinacje i wciÂ¹Â¿ to samo.)
 
 ======== Wersja 3 ========
 
-Na podstawie kodu z ksi¹¿ki "Game Programming Gems", tom 5, rozdz. 1.6
+Na podstawie kodu z ksiÂ¹Â¿ki "Game Programming Gems", tom 5, rozdz. 1.6
 "Improved Frustum Culling", Frank Puig Placeres.
 
-Wygl¹da ³adnie, ale daje wyniki kompletnie niezgodne z D3DX.
+WyglÂ¹da Â³adnie, ale daje wyniki kompletnie niezgodne z D3DX.
 
 	float cosfine = (q0.x * q1.x) + (q0.y * q1.y) * (q0.z * q1.z) * (q0.w * q1.w);
 	float angleR = acosf(cosfine);
@@ -2643,13 +2642,13 @@ Wygl¹da ³adnie, ale daje wyniki kompletnie niezgodne z D3DX.
 
 ========
 
-Porównanie zgodnoœci wyników moich funkcji z D3DXQuaternionSlerp dla losowych
-kwaternionów:
+PorÃ³wnanie zgodnoÂœci wynikÃ³w moich funkcji z D3DXQuaternionSlerp dla losowych
+kwaternionÃ³w:
 
                        Wersja 1   Wersja 2   Wersja 3
 Nie normalizowane       50 %      100 %        0 %
-Normalizowane wejœcie   80 %      100 %        0 %
-Normalizowane wyjœcie   50 %      100 %        0 %
+Normalizowane wejÂœcie   80 %      100 %        0 %
+Normalizowane wyjÂœcie   50 %      100 %        0 %
 Normalizowane we i wy   80 %      100 %        0 %
 */
 
@@ -2939,11 +2938,11 @@ void FRUSTUM_POINTS::Set(const MATRIX &WorldViewProjInv)
 
 void FRUSTUM_POINTS::CalcCenter(VEC3 *Out) const
 {
-	// Œrodek near clipping plane
+	// ÂŒrodek near clipping plane
 	VEC3 NearCenter = (Points[NEAR_LEFT_TOP] + Points[NEAR_RIGHT_BOTTOM]) * 0.5f;
-	// Œrodek far clipping plane
+	// ÂŒrodek far clipping plane
 	VEC3 FarCenter = (Points[FAR_LEFT_BOTTOM] + Points[FAR_RIGHT_TOP]) * 0.5f;
-	// Punkt w po³owie odleg³oœci miêdzy nimi to œrodek sfery
+	// Punkt w poÂ³owie odlegÂ³oÂœci miÃªdzy nimi to Âœrodek sfery
 	*Out = (NearCenter + FarCenter) * 0.5f;
 }
 
@@ -2960,9 +2959,9 @@ void FRUSTUM_POINTS::CalcBoundingBox(BOX *Box) const
 
 void FRUSTUM_POINTS::CalcBoundingSphere(VEC3 *SphereCenter, float *SphereRadius) const
 {
-	// Œrodek frustuma to œrodek sfery
+	// ÂŒrodek frustuma to Âœrodek sfery
 	CalcCenter(SphereCenter);
-	// Promieñ sfery to odleg³oœæ tego punktu od jakiegoœ punktu z rogu far clipping plane
+	// PromieÃ± sfery to odlegÂ³oÂœÃ¦ tego punktu od jakiegoÂœ punktu z rogu far clipping plane
 	*SphereRadius = Distance(*SphereCenter, Points[FAR_LEFT_TOP]);
 }
 
@@ -2997,7 +2996,7 @@ void FRUSTUM_RADAR::SetView(const VEC3 &Eye, const VEC3 &Forward, const VEC3 &Up
 
 
 //HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-// KAPSU£A
+// KAPSUÂ£A
 
 float CapsuleVolume(const VEC3 &p1, const VEC3 &p2, float R)
 {
@@ -3063,7 +3062,7 @@ void ConvexHull2D(std::vector<VEC2> *OutPoints, const VEC2 InPoints[], size_t In
 		return;
 	}
 
-	OutPoints->reserve(InPointCount); // wiêcej ni¿ potrzeba
+	OutPoints->reserve(InPointCount); // wiÃªcej niÂ¿ potrzeba
 
 	VEC2 Pivot = InPoints[0];
 	std::vector<VEC2> PointSet; // Stores all points except the pivot
@@ -3081,7 +3080,7 @@ void ConvexHull2D(std::vector<VEC2> *OutPoints, const VEC2 InPoints[], size_t In
 			PointSet.push_back(Tmp);
 	}
 
-	std::vector<VEC2>::iterator PtEnd = std::unique(PointSet.begin(), PointSet.end()); // Tego nie rozumiem po co to ani jak mo¿e wystêpowaæ przed sort zamiast po, ale w koñcu ja tu nie jestem od rozumienia tylko od kopiowania dobrego kodu od innych ;)
+	std::vector<VEC2>::iterator PtEnd = std::unique(PointSet.begin(), PointSet.end()); // Tego nie rozumiem po co to ani jak moÂ¿e wystÃªpowaÃ¦ przed sort zamiast po, ale w koÃ±cu ja tu nie jestem od rozumienia tylko od kopiowania dobrego kodu od innych ;)
 	PointSet.erase(PtEnd, PointSet.end());
 
 	std::sort(PointSet.begin(), PointSet.end(), ConvexHull2D_IsLeftSort(Pivot));
@@ -3253,7 +3252,7 @@ bool IntersectCubicBezierCurve2DWithX(const VEC2 curve[4], float x, float eps, f
 float Orient2D(const VEC2 &a, const VEC2 &b, const VEC2 &c)
 {
 	/*
-	Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 	Liczy wyznacznik:
 	| ax ay 1 |
 	| bx by 1 |
@@ -3267,13 +3266,13 @@ float Orient2D(const VEC2 &a, const VEC2 &b, const VEC2 &c)
 float Orient3D(const VEC3 &a, const VEC3 &b, const VEC3 &c, const VEC3 &d)
 {
 	/*
-	Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 	Liczy wyznacznik:
 	| ax ay az 1 |
 	| bx by bz 1 |
 	| cx cy cz 1 |
 	| dx dy dz 1 |
-	TODO - rozpisaæ optymalniej.
+	TODO - rozpisaÃ¦ optymalniej.
 	*/
 	VEC3 Tmp; Cross(&Tmp, b - d, c - d);
 	return Dot(a - d, Tmp);
@@ -3315,7 +3314,7 @@ bool IsQuadConvex(const VEC2 &a, const VEC2 &b, const VEC2 &c, const VEC2 &d)
 
 bool IsQuadConvex(const VEC3 &a, const VEC3 &b, const VEC3 &c, const VEC3 &d)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 	VEC3 d_minus_b = d - b;
 	VEC3 bda; Cross(&bda, d_minus_b, a - b);
 	VEC3 bdc; Cross(&bdc, d_minus_b, c - b);
@@ -3327,7 +3326,7 @@ bool IsQuadConvex(const VEC3 &a, const VEC3 &b, const VEC3 &c, const VEC3 &d)
 
 float ClosestPointOnLine(const VEC3 &p, const VEC3 &RayOrig, const VEC3 &RayDir)
 {
-	// Napisane na podstawie ksi¹¿ki "3D Math Primer for Graphics and Game Development", str. 278.
+	// Napisane na podstawie ksiÂ¹Â¿ki "3D Math Primer for Graphics and Game Development", str. 278.
 	return Dot(RayDir, p-RayOrig);
 }
 
@@ -3335,7 +3334,7 @@ float ClosestPointSegmentSegment(
 	const VEC3 &Seg1_Beg, const VEC3 &Seg1_End, const VEC3 &Seg2_Beg, const VEC3 &Seg2_End,
 	float &OutSeg1_t, float &OutSeg2_t, VEC3 &OutSeg1_pt, VEC3 &OutSeg2_pt)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 d1 = Seg1_End - Seg1_Beg; // Direction vector of segment S1
 	VEC3 d2 = Seg2_End - Seg2_Beg; // Direction vector of segment S2
@@ -3398,7 +3397,7 @@ float ClosestPointSegmentSegment(
 
 float PointToLineDistance(const VEC3 &P, const VEC3 &LineOrig, const VEC3 &LineDir)
 {
-	// Wzór z netu (Worlfram MathWorld): http://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html
+	// WzÃ³r z netu (Worlfram MathWorld): http://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html
 
 	VEC3 vsub; Sub(&vsub, LineOrig, P);
 	VEC3 vcr; Cross(&vcr, LineDir, vsub);
@@ -3407,7 +3406,7 @@ float PointToLineDistance(const VEC3 &P, const VEC3 &LineOrig, const VEC3 &LineD
 
 float PointToSegmentDistanceSq(const VEC2 &p, const VEC2 &segment_p1, const VEC2 &segment_p2)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC2 ab = segment_p2 - segment_p1, ac = p - segment_p1;
 	float e = Dot(ac, ab);
@@ -3425,7 +3424,7 @@ float PointToSegmentDistanceSq(const VEC2 &p, const VEC2 &segment_p1, const VEC2
 
 float PointToSegmentDistanceSq(const VEC3 &p, const VEC3 &segment_p1, const VEC3 &segment_p2)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 ab = segment_p2 - segment_p1, ac = p - segment_p1, bc = p - segment_p2;
 	float e = Dot(ac, ab);
@@ -3439,7 +3438,7 @@ float PointToSegmentDistanceSq(const VEC3 &p, const VEC3 &segment_p1, const VEC3
 
 bool PointOnLine(const VEC3 &P, const VEC3 &LineOrig, const VEC3 &LineDir)
 {
-	// Wzór z netu (Worlfram MathWorld): http://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html
+	// WzÃ³r z netu (Worlfram MathWorld): http://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html
 
 	VEC3 vsub; Sub(&vsub, LineOrig, P);
 	VEC3 vcr; Cross(&vcr, LineDir, vsub);
@@ -3448,7 +3447,7 @@ bool PointOnLine(const VEC3 &P, const VEC3 &LineOrig, const VEC3 &LineDir)
 
 float PointToLine(const VEC3 &P, const VEC3 &LineOrig, const VEC3 &LineDir)
 {
-	// Algorytm wymyœli³em sam.
+	// Algorytm wymyÂœliÂ³em sam.
 
 	float abs_dir_x = fabsf(LineDir.x);
 	float abs_dir_y = fabsf(LineDir.y);
@@ -3464,7 +3463,7 @@ float PointToLine(const VEC3 &P, const VEC3 &LineOrig, const VEC3 &LineDir)
 
 bool PointInLineSegment(const VEC3 &P, const VEC3 &SegmentBeg, const VEC3 &SegmentEnd)
 {
-	// Algorytm wymyœli³em sam.
+	// Algorytm wymyÂœliÂ³em sam.
 
 	float minx = std::min(SegmentBeg.x, SegmentEnd.x);
 	float maxx = std::max(SegmentBeg.x, SegmentEnd.x);
@@ -3487,7 +3486,7 @@ bool PointInLineSegment(const VEC3 &P, const VEC3 &SegmentBeg, const VEC3 &Segme
 
 float ClosestPointOnSegment(VEC2 *Out, const VEC2 &p, const VEC2 &p1, const VEC2 &p2)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	float t;
 	VEC2 ab = p2 - p1;
@@ -3520,7 +3519,7 @@ float ClosestPointOnSegment(VEC2 *Out, const VEC2 &p, const VEC2 &p1, const VEC2
 
 float ClosestPointOnSegment(VEC3 *Out, const VEC3 &p, const VEC3 &p1, const VEC3 &p2)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	float t;
 	VEC3 ab = p2 - p1;
@@ -3553,7 +3552,7 @@ float ClosestPointOnSegment(VEC3 *Out, const VEC3 &p, const VEC3 &p1, const VEC3
 
 float ClosestPointOnRay(VEC2 *Out, const VEC2 &p, const VEC2 &RayOrig, const VEC2 &RayDir)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	float t;
 	// Project p onto ab, but deferring divide by Dot(ab, ab)
@@ -3574,7 +3573,7 @@ float ClosestPointOnRay(VEC2 *Out, const VEC2 &p, const VEC2 &RayOrig, const VEC
 
 float ClosestPointOnRay(VEC3 *Out, const VEC3 &p, const VEC3 &RayOrig, const VEC3 &RayDir)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	float t;
 	// Project p onto ab, but deferring divide by Dot(ab, ab)
@@ -3602,7 +3601,7 @@ void ClosestPointInBox(VEC3 *Out, const BOX &Box, const VEC3 &p)
 
 void ClosestPointInObb(VEC3 *OutPoint, const VEC3 &Point, const OBB &Obb)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 d = Point - Obb.Center;
 	// Start result at center of box; make steps from there
@@ -3623,7 +3622,7 @@ void ClosestPointInObb(VEC3 *OutPoint, const VEC3 &Point, const OBB &Obb)
 
 void ClosestPointInRect3d(VEC3 *OutPoint, const VEC3 &Point, const RECT3D &Rect3d)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 d = Point - Rect3d.Center;
 	// Start result at center of rect; make steps from there
@@ -3648,14 +3647,14 @@ void ClosestPointInRect3d(VEC3 *OutPoint, const VEC3 &p, const VEC3 &a, const VE
 	VEC3 d = p - a;
 	// Start result at top-left corner of rect; make steps from there
 	*OutPoint = a;
-	// Clamp p’ (projection of p to plane of r) to rectangle in the across direction
+	// Clamp pÂ’ (projection of p to plane of r) to rectangle in the across direction
 	float dist = Dot(d, ab);
 	float maxdist = Dot(ab, ab);
 	if (dist >= maxdist)
 		*OutPoint += ab;
 	else if (dist > 0.0f)
 		*OutPoint += (dist / maxdist) * ab;
-	// Clamp p’ (projection of p to plane of r) to rectangle in the down direction
+	// Clamp pÂ’ (projection of p to plane of r) to rectangle in the down direction
 	dist = Dot(d, ac);
 	maxdist = Dot(ac, ac);
 	if (dist >= maxdist)
@@ -3666,7 +3665,7 @@ void ClosestPointInRect3d(VEC3 *OutPoint, const VEC3 &p, const VEC3 &a, const VE
 
 void ClosestPointInTriangle(VEC3 *OutPoint, const VEC3 &p, const VEC3 &a, const VEC3 &b, const VEC3 &c)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	// Check if P in vertex region outside A
 	VEC3 ab = b - a;
@@ -3795,7 +3794,7 @@ int PointOutsideOfPlane(const VEC3 &p, const VEC3 &a, const VEC3 &b, const VEC3 
 
 void ClosestPointInTetrahedron(VEC3 *OutPoint, const VEC3 &p, const VEC3 &a, const VEC3 &b, const VEC3 &c, const VEC3 &d)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	// Start out assuming point inside all halfspaces, so closest to itself
 	*OutPoint = p;
@@ -3895,7 +3894,7 @@ float PointToRectMaxDistance(const VEC2 &p, const RECTF &rect)
 
 float PointToBoxDistanceSq(const VEC3 &p, const BOX &box)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 	
 	float SqDist = 0.0f;
 	for (unsigned i = 0; i < 3; i++)
@@ -4038,7 +4037,7 @@ float BoxToBoxMaxDistance(const BOX &box1, const BOX &box2)
 
 float PointToObbDistanceSq(const VEC3 &Point, const OBB &Obb)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
     VEC3 v = Point - Obb.Center;
     float sqDist = 0.0f;
@@ -4063,7 +4062,7 @@ bool CircleToRect(const VEC2 &circleCenter, float circleRadius, const RECTF &rec
 bool PointInSphere(const VEC3 &p, const VEC3 &SphereCenter, float SphereRadius)
 {
 	//return Distance(p, SphereCenter) <= SphereRadius;
-	// Nowe, szybsze, mam nadziejê ¿e poprawne
+	// Nowe, szybsze, mam nadziejÃª Â¿e poprawne
 	return DistanceSq(p, SphereCenter) <= SphereRadius * SphereRadius;
 }
 
@@ -4074,7 +4073,7 @@ float PointToSphereDistance(const VEC3 &p, const VEC3 &SphereCenter, float Spher
 
 void ClosestPointOnSphere(VEC3 *Out, const VEC3 &SphereCenter, float SphereRadius, const VEC3 &p)
 {
-	// Napisane na podstawie ksi¹¿ki "3D Math Primer for Graphics and Game Development", str. 280.
+	// Napisane na podstawie ksiÂ¹Â¿ki "3D Math Primer for Graphics and Game Development", str. 280.
 	VEC3 d = SphereCenter - p;
 	float length_d = Length(d);
 	*Out = p + d * ((length_d - SphereRadius) / length_d);
@@ -4087,13 +4086,13 @@ bool PointOnPlane(const VEC3 &p, const PLANE &plane)
 
 void ClosestPointOnPlane(VEC3 *Out, const PLANE &Plane, const VEC3 &p)
 {
-	// Napisane na podstawie ksi¹¿ki "3D Math Primer for Graphics and Game Development", str. 279.
+	// Napisane na podstawie ksiÂ¹Â¿ki "3D Math Primer for Graphics and Game Development", str. 279.
 	*Out = p - GetPlaneNormal(Plane) * DotCoord(Plane, p);
 }
 
 bool PointInTriangle(const VEC3 &point, const VEC3 &pa, const VEC3 &pb, const VEC3 &pc)
 {
-	// ród³o: Improved Collision detection and Response, Kasper Fauerby
+	// ÂrÃ³dÂ³o: Improved Collision detection and Response, Kasper Fauerby
 
 	VEC3 e10 = pb-pa;
 	VEC3 e20 = pc-pa;
@@ -4145,7 +4144,7 @@ bool PointInFrustum(const VEC3 &p, const FRUSTUM_RADAR &Frustum)
 
 bool ClosestPointsOnLines(float *OutT1, float *OutT2, const VEC3 &RayOrig1, const VEC3 &RayDir1, const VEC3 &RayOrig2, const VEC3 &RayDir2)
 {
-	// Napisane na podstawie ksi¹¿ki "3D Math Primer for Graphics and Game Development", str. 283.
+	// Napisane na podstawie ksiÂ¹Â¿ki "3D Math Primer for Graphics and Game Development", str. 283.
 
 	VEC3 orig_diff = RayOrig2-RayOrig1;
 	VEC3 dcr; Cross(&dcr, RayDir1, RayDir2);
@@ -4275,8 +4274,8 @@ bool RayToBox(float *OutT, const VEC3 &RayOrig, const VEC3 &RayDir, const BOX &B
 
 bool RayToSphere(const VEC3 &RayOrig, const VEC3 &RayDir, const VEC3 &SphereCenter, float SphereRadius, float *OutT)
 {
-	// Równanie kwadratowe.
-	// Napisane samodzielnie z ma³¹ pomoc¹:
+	// RÃ³wnanie kwadratowe.
+	// Napisane samodzielnie z maÂ³Â¹ pomocÂ¹:
 	// http://www.siggraph.org/education/materials/HyperGraph/raytrace/rtinter1.htm
 	// link znaleziony na:
 	// http://www.realtimerendering.com/int/
@@ -4296,23 +4295,23 @@ bool RayToSphere(const VEC3 &RayOrig, const VEC3 &RayDir, const VEC3 &SphereCent
 
 	// Pierwszy pierwiastek - ten mniejszy
 	*OutT = (minus_b - sqrt_Delta) / a_2;
-	// Przypadek ¿e ca³a sfera jest przed RayOrig - pierwiastek mniejszy to wynik
+	// Przypadek Â¿e caÂ³a sfera jest przed RayOrig - pierwiastek mniejszy to wynik
 	if (*OutT >= 0.f)
 		return true;
-	// Drugi pierwiastek - ten wiêkszy
+	// Drugi pierwiastek - ten wiÃªkszy
 	*OutT = (minus_b + sqrt_Delta) / a_2;
-	// Przypadek ¿e poczatek promienia jest wewn¹trz sfery
+	// Przypadek Â¿e poczatek promienia jest wewnÂ¹trz sfery
 	if (*OutT >= 0.f)
 	{
 		*OutT = 0.f;
 		return true;
 	}
-	// Przypadek ¿e sfera jest z ty³u za promieniem
+	// Przypadek Â¿e sfera jest z tyÂ³u za promieniem
 	return true;
 }
 
 /*
-Wersja stara, która liczy Ÿle! Nie wiem sk¹d pochodzi.
+Wersja stara, ktÃ³ra liczy ÂŸle! Nie wiem skÂ¹d pochodzi.
 
 bool RayToSphere(const VEC3 &RayOrigin, const VEC3 &RayDir, const VEC3 &SphereCenter, float SphereRadius, float *t)
 {
@@ -4328,7 +4327,7 @@ bool RayToSphere(const VEC3 &RayOrigin, const VEC3 &RayDir, const VEC3 &SphereCe
 	return true;
 }
 
-Jakiœ algorytm na to jest te¿ w ksi¹¿ce "3D Math Primer for Graphics and Game Development", str. 288.
+JakiÂœ algorytm na to jest teÂ¿ w ksiÂ¹Â¿ce "3D Math Primer for Graphics and Game Development", str. 288.
 */
 
 bool RayToPlane(const VEC3 &RayOrig, const VEC3 &RayDir, const PLANE &Plane, float *OutT, float *OutVD)
@@ -4340,8 +4339,8 @@ bool RayToPlane(const VEC3 &RayOrig, const VEC3 &RayDir, const PLANE &Plane, flo
 	// t = - ----------------------
 	//         A xd + B yd + C zd
 
-	// Ten sam wzór jest w ksi¹¿ce "3D Math Primer for Graphics and Game Development", str. 284.
-	// Inna wersja dostêpna jest w ksi¹¿ce: "3D Game Engine Programming", Stefan Zerbst with Oliver Duvel, str. 136.
+	// Ten sam wzÃ³r jest w ksiÂ¹Â¿ce "3D Math Primer for Graphics and Game Development", str. 284.
+	// Inna wersja dostÃªpna jest w ksiÂ¹Â¿ce: "3D Game Engine Programming", Stefan Zerbst with Oliver Duvel, str. 136.
 
 	*OutVD = Plane.a * RayDir.x + Plane.b * RayDir.y + Plane.c * RayDir.z;
 	if (*OutVD == 0.0f)
@@ -4358,10 +4357,10 @@ bool RayToTriangle(
 	bool BackfaceCulling,
 	float *OutT)
 {
-	////// Nowy, piêkny algorytm :)
+	////// Nowy, piÃªkny algorytm :)
 	// Znaleziony w Google Code Search:
 	// http://www.google.com/codesearch?hl=en&q=+RayTriangleIntersect+show:M63-4o6bYUI:fUr9QIwtaKY:Dw059DARM5E&sa=N&cd=1&ct=rc&cs_p=http://www.angstrom-distribution.org/unstable/sources/ode-snapshot-20060210.tar.bz2&cs_f=ode-snapshot-20060210/ode/src/collision_trimesh_trimesh.cpp#first
-	// Dopisa³em do niego Backface Culling, dzia³a bez problemu :D
+	// DopisaÂ³em do niego Backface Culling, dziaÂ³a bez problemu :D
 
 	VEC3 tvec, pvec, qvec;
 
@@ -4402,8 +4401,8 @@ bool RayToTriangle(
 	return true;
 
 	////// Stary algorytm: Moller i Trumbore
-	// Na podstawie ksi¹¿ki: "3D Game Engine Programming", Stefan Zerbst with Oliver Duvel, str. 134.
-	// Dobry, ale niestety nie obs³uguje on Backface Culling i nijak nie uda³o mi siê tego do niego wprowadziæ.
+	// Na podstawie ksiÂ¹Â¿ki: "3D Game Engine Programming", Stefan Zerbst with Oliver Duvel, str. 134.
+	// Dobry, ale niestety nie obsÂ³uguje on Backface Culling i nijak nie udaÂ³o mi siÃª tego do niego wprowadziÃ¦.
 
 /*	VEC3 pvec, tvec, qvec;
 
@@ -4440,12 +4439,12 @@ bool RayToTriangle(
 	}
 	return true;*/
 
-	// Jakiœ algorytm, du¿o d³u¿szy, jest te¿ w ksi¹¿ce "3D Math Primer for Graphics and Game Development", str. 294.
+	// JakiÂœ algorytm, duÂ¿o dÂ³uÂ¿szy, jest teÂ¿ w ksiÂ¹Â¿ce "3D Math Primer for Graphics and Game Development", str. 294.
 }
 
 bool RayToQuad(const VEC3 &RayOrig, const VEC3 &RayDir, const VEC3 QuadPoints[4], VEC3 *OutPoint)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 pa = QuadPoints[0] - RayOrig;
 	VEC3 pc = QuadPoints[2] - RayOrig;
@@ -4485,8 +4484,8 @@ bool RayToQuad(const VEC3 &RayOrig, const VEC3 &RayDir, const VEC3 QuadPoints[4]
 
 bool RayToFrustum(const VEC3 &RayOrig, const VEC3 &RayDir, const FRUSTUM_PLANES &Frustum, float *t_near, float *t_far)
 {
-	// To jest uniwersalny algorytm na kolizjê promienia/prostej/odcinka z wieloœcianem wypuk³ym.
-	// Na podstawie Graphics Gems II, rozdzia³ V.1.
+	// To jest uniwersalny algorytm na kolizjÃª promienia/prostej/odcinka z wieloÂœcianem wypukÂ³ym.
+	// Na podstawie Graphics Gems II, rozdziaÂ³ V.1.
 
 	*t_near = MINFLOAT;
 	*t_far = MAXFLOAT;
@@ -4497,10 +4496,10 @@ bool RayToFrustum(const VEC3 &RayOrig, const VEC3 &RayDir, const FRUSTUM_PLANES 
 		vn = DotCoord(Frustum.Planes[i], RayOrig);
 		vd = DotNormal(Frustum.Planes[i], RayDir);
 
-		// Nie ma przeciêcia z p³aszczyzn¹
+		// Nie ma przeciÃªcia z pÂ³aszczyznÂ¹
 		if (FLOAT_ALMOST_ZERO(vd))
 		{
-			// Promieñ na zewn¹trz - na pewno nie ma przeciêcia
+			// PromieÃ± na zewnÂ¹trz - na pewno nie ma przeciÃªcia
 			if (vn < 0.0f)
 				return false;
 		}
@@ -4525,15 +4524,15 @@ bool RayToCylinder(
 	const VEC3 &CylinderBeg, const VEC3 &CylinderEnd, float CylinderRadius,
 	float *OutT)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 d = CylinderEnd - CylinderBeg, m = RayOrig - CylinderBeg;
 	float md = Dot(m, d);
 	float nd = Dot(RayDir, d);
 	float dd = Dot(d, d);
 	// Test if segment fully outside either endcap of cylinder
-	//if (md < 0.0f && md + nd < 0.0f) return false; // Segment outside ‘CylinderBeg’ side of cylinder
-	//if (md > dd && md + nd > dd) return false;     // Segment outside ‘CylinderEnd’ side of cylinder
+	//if (md < 0.0f && md + nd < 0.0f) return false; // Segment outside Â‘CylinderBegÂ’ side of cylinder
+	//if (md > dd && md + nd > dd) return false;     // Segment outside Â‘CylinderEndÂ’ side of cylinder
 	float nn = Dot(RayDir, RayDir);
 	float mn = Dot(m, RayDir);
 	float a = dd * nn - nd * nd;
@@ -4541,11 +4540,11 @@ bool RayToCylinder(
 	float c = dd * k - md * md;
 	if (fabsf(a) < FLOAT_EPSILON) {
 		// Segment runs parallel to cylinder axis
-		if (c > 0.0f) return false; // ‘a’ and thus the segment lie outside cylinder
+		if (c > 0.0f) return false; // Â‘aÂ’ and thus the segment lie outside cylinder
 		// Now known that segment intersects cylinder; figure out how it intersects
-		if (md < 0.0f) *OutT = -mn / nn; // Intersect segment against ‘CylinderBeg’ endcap
-		else if (md > dd) *OutT = (nd - mn) / nn; // Intersect segment against ‘CylinderEnd’ endcap
-		else *OutT = 0.0f; // ‘a’ lies inside cylinder
+		if (md < 0.0f) *OutT = -mn / nn; // Intersect segment against Â‘CylinderBegÂ’ endcap
+		else if (md > dd) *OutT = (nd - mn) / nn; // Intersect segment against Â‘CylinderEndÂ’ endcap
+		else *OutT = 0.0f; // Â‘aÂ’ lies inside cylinder
 		return true;
 	}
 	float b = dd * mn - nd * md;
@@ -4554,13 +4553,13 @@ bool RayToCylinder(
 	*OutT = (-b - sqrtf(discr)) / a;
 	//if (*OutT < 0.0f || *OutT > 1.0f) return false; // Intersection lies outside segment
 	if (md + *OutT * nd < 0.0f) {
-		// Intersection outside cylinder on ‘CylinderBeg’ side
+		// Intersection outside cylinder on Â‘CylinderBegÂ’ side
 		if (nd <= 0.0f) return false; // Segment pointing away from endcap
 		*OutT = -md / nd;
 		// Keep intersection if Dot(S(*OutT) - CylinderBeg, S(*OutT) - CylinderBeg) <= CylinderRadius^2
 		return k + 2 * *OutT * (mn + *OutT * nn) <= 0.0f;
 	} else if (md + *OutT * nd > dd) {
-		// Intersection outside cylinder on ‘CylinderEnd’ side
+		// Intersection outside cylinder on Â‘CylinderEndÂ’ side
 		if (nd >= 0.0f) return false; // Segment pointing away from endcap
 		*OutT = (dd - md) / nd;
 		// Keep intersection if Dot(S(*OutT) - CylinderEnd, S(*OutT) - CylinderEnd) <= CylinderRadius^2
@@ -4577,7 +4576,7 @@ bool PointInConvexPolyhedron(const VEC3 &Point, const PLANE PolyhedronPlanes[], 
 
 bool PointInConvexPolyhedron(const VEC3 &Point, const void *PolyhedronPlanes, size_t PolyhedronPlaneCount, ptrdiff_t PolyhedronPlaneStride)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	const char *PolyhedronPlaneBytes = (const char*)PolyhedronPlanes;
 	for (size_t Plane_i = 0; Plane_i < PolyhedronPlaneCount; Plane_i++)
@@ -4603,10 +4602,10 @@ bool RayToConvexPolyhedron(
 	const void *PolyhedronPlanes, size_t PolyhedronPlaneCount, ptrdiff_t PolyhedronPlaneStride,
 	float *OutBegT, float *OutEndT)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	// Set initial interval to being the whole segment. For RayOrig ray, *OutEndT should be
-	// set to +FLT_MAX. For RayOrig line, additionally *OutBegT should be set to –FLT_MAX
+	// set to +FLT_MAX. For RayOrig line, additionally *OutBegT should be set to Â–FLT_MAX
 	*OutBegT = FLT_MIN; //0.0f;
 	*OutEndT = FLT_MAX; //1.0f;
 	// Intersect segment against each plane 
@@ -4631,7 +4630,7 @@ bool RayToConvexPolyhedron(
 				// When exiting halfspace, update *OutEndT if t is smaller
 				if (t < *OutEndT) *OutEndT = t;
 			}
-			// Exit with “no intersection” if intersection becomes empty
+			// Exit with Â“no intersectionÂ” if intersection becomes empty
 			if (*OutBegT > *OutEndT) return false;
 		}
 
@@ -4650,7 +4649,7 @@ bool SphereToBox(const VEC3 &SphereCenter, float SphereRadius, const BOX &Box)
 
 bool SphereToObb(const VEC3 &SphereCenter, float SphereRadius, const OBB &Obb)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 p;
 	ClosestPointInObb(&p, SphereCenter, Obb);
@@ -4660,7 +4659,7 @@ bool SphereToObb(const VEC3 &SphereCenter, float SphereRadius, const OBB &Obb)
 
 bool SphereToTriangle(const VEC3 &SphereCenter, float SphereRadius, const VEC3 &TriA, const VEC3 &TriB, const VEC3 &TriC)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 p;
 	ClosestPointInTriangle(&p, SphereCenter, TriA, TriB, TriC);
@@ -4668,7 +4667,7 @@ bool SphereToTriangle(const VEC3 &SphereCenter, float SphereRadius, const VEC3 &
 	return Dot(v, v) <= SphereRadius * SphereRadius;
 }
 
-// Zaczête, niedokoñczone...
+// ZaczÃªte, niedokoÃ±czone...
 /*bool SphereToPolygon(
 	const VEC3 &SphereCenter, float SphereRadius,
 	const VEC3 PolygonPoints[], size_t PolygonPointCount, const PLANE *PolygonPlane)
@@ -4680,14 +4679,14 @@ bool SphereToPolygon(
 	const VEC3 &SphereCenter, float SphereRadius,
 	const void *PolygonPoints, size_t PolygonPointCount, int PolygonPointStride, const PLANE *PolygonPlane)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	// Compute normal for the plane of the polygon
 	VEC3 *n = PolygonNormal;
 	VEC3 tmp_n;
 	if (n == NULL)
 	{
-		Cross(&tmp_n, p.v[1] – p.v[0], p.v[2] – p.v[0]);
+		Cross(&tmp_n, p.v[1] Â– p.v[0], p.v[2] Â– p.v[0]);
 		Normalize(&tmp_n);
 		n = &tmp_n;
 	}
@@ -4699,7 +4698,7 @@ bool SphereToPolygon(
 	for (int k = PolygonPointCount, i = 0, j = k - 1; i < k; j = i, i++) {
 		float t;
 		// Test if edge (p.v[j], p.v[i]) intersects s
-		if (RayToSphere(p.v[j], p.v[i] – p.v[j], SphereCenter, SphereRadius, &t) && t >= 0.0f && t <= 1.0f)
+		if (RayToSphere(p.v[j], p.v[i] Â– p.v[j], SphereCenter, SphereRadius, &t) && t >= 0.0f && t <= 1.0f)
 			return true;
 	}
 	// Test if the orthogonal projection q of the sphere center onto m is inside p
@@ -4732,7 +4731,7 @@ bool BoxInSphere(const BOX &Box, const VEC3 &SphereCenter, float SphereRadius)
 
 int ClassifyBoxToPlane(const PLANE &plane, const BOX &box)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 c; box.GetCenter(&c); // Compute AABB center
 	VEC3 e = box.Max - c; // Compute positive extents
@@ -4749,7 +4748,7 @@ int ClassifyBoxToPlane(const PLANE &plane, const BOX &box)
 
 int ClassifyObbToPlane(const PLANE &Plane, const OBB &Obb)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	// Compute the projection interval radius of Obb onto L(t) = Obb.c + t * Plane.n
 	float r =
@@ -4946,7 +4945,7 @@ bool TriangleToBox(const VEC3 &TriA, const VEC3 &TriB, const VEC3 &TriC, const B
 
 bool BoxToFrustum_Fast(const BOX &Box, const FRUSTUM_PLANES &Frustum)
 {
-	// Na podstawie ksi¹¿ki "3D Game Engine Programming", Stefan Zerbst with Oliver Duvel
+	// Na podstawie ksiÂ¹Â¿ki "3D Game Engine Programming", Stefan Zerbst with Oliver Duvel
 
 	VEC3 vmin;
 	for (uint i = 0; i < 6; i++)
@@ -4978,7 +4977,7 @@ bool BoxToFrustum(const BOX &Box, const FRUSTUM_PLANES &FrustumPlanes, const FRU
 	if (!BoxToFrustum_Fast(Box, FrustumPlanes))
 		return false;
 
-	// Wylicz Frustum Points jeœli trzeba
+	// Wylicz Frustum Points jeÂœli trzeba
 	FRUSTUM_POINTS MyFrustumPoints;
 	const FRUSTUM_POINTS *FrustumPointsPtr = OptFrustumPoints;
 	if (FrustumPointsPtr == NULL)
@@ -5010,7 +5009,7 @@ bool BoxToFrustum(const BOX &Box, const FRUSTUM_PLANES &FrustumPlanes, const FRU
 
 bool BoxToFrustum(const BOX &Box, const FRUSTUM_RADAR &Frustum)
 {
-	// Algorytm na podstawie kodu z ksi¹¿ki "Game Programming Gems", tom 5, rozdz. 1.6
+	// Algorytm na podstawie kodu z ksiÂ¹Â¿ki "Game Programming Gems", tom 5, rozdz. 1.6
 	// "Improved Frustum Culling", Frank Puig Placeres
 
 	VEC3 P;
@@ -5064,7 +5063,7 @@ bool BoxToFrustum(const BOX &Box, const FRUSTUM_RADAR &Frustum)
 
 bool BoxInFrustum(const BOX &Box, const FRUSTUM_PLANES &Frustum)
 {
-	// Ka¿dy punkt AABB musi le¿eæ w jego wnêtrzu
+	// KaÂ¿dy punkt AABB musi leÂ¿eÃ¦ w jego wnÃªtrzu
 	if (!PointInFrustum(Box.Min, Frustum)) return false;
 	if (!PointInFrustum(VEC3(Box.Max.x, Box.Min.y, Box.Min.z), Frustum)) return false;
 	if (!PointInFrustum(VEC3(Box.Min.x, Box.Max.y, Box.Min.z), Frustum)) return false;
@@ -5100,7 +5099,7 @@ int ClassifySphereToPlane(const VEC3 &SphereCenter, float SphereRadius, const PL
 
 bool CapsuleToPlane(const VEC3 &CapsuleBeg, const VEC3 &CapsuleEnd, float CapsuleRadius, const PLANE &Plane)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	// Get the distance for both CapsuleBeg and CapsuleEnd from plane Plane
 	float adist = DotCoord(Plane, CapsuleBeg);
@@ -5133,7 +5132,7 @@ bool SphereToFrustum(
 	if (!SphereToFrustum_Fast(SphereCenter, SphereRadius, FrustumPlanes))
 		return false;
 
-	// Wylicz Frustum Points jeœli trzeba
+	// Wylicz Frustum Points jeÂœli trzeba
 	FRUSTUM_POINTS MyFrustumPoints;
 	const FRUSTUM_POINTS *FrustumPointsPtr = OptFrustumPoints;
 	if (FrustumPointsPtr == NULL)
@@ -5165,10 +5164,10 @@ bool SphereToFrustum(const VEC3 &SphereCenter, float SphereRadius, const FRUSTUM
 	if (f < Frustum.GetZNear() - SphereRadius || f > Frustum.GetZFar() + SphereRadius)
 		return false;
 
-	// dr i du to jest poprawka, której nie uwzglêdnia oryginalny artyku³ o reprezentacji radarowej
-	// w ksi¹¿ce "Game Programming Gems 5", tom 5, rozdz. 1.6 - "Improved Frustum Culling",
-	// Frank Puig Placeres, ale uwzglêdnia j¹ autor "View Frustum Culling Tutorial",
-	// António Ramires Fernandes, http://www.lighthouse3d.com/opengl/viewfrustum/index.php
+	// dr i du to jest poprawka, ktÃ³rej nie uwzglÃªdnia oryginalny artykuÂ³ o reprezentacji radarowej
+	// w ksiÂ¹Â¿ce "Game Programming Gems 5", tom 5, rozdz. 1.6 - "Improved Frustum Culling",
+	// Frank Puig Placeres, ale uwzglÃªdnia jÂ¹ autor "View Frustum Culling Tutorial",
+	// AntÃ³nio Ramires Fernandes, http://www.lighthouse3d.com/opengl/viewfrustum/index.php
 
 	float dr = SphereRadius * Frustum.GetRSphereFactor();
 	float r = Dot(OP, Frustum.GetRight());
@@ -5200,19 +5199,19 @@ bool SphereInFrustum(const VEC3 &SphereCenter, float SphereRadius, const FRUSTUM
 bool Intersect2Planes(const PLANE &Plane1, const PLANE &Plane2, VEC3 *OutLineOrig, VEC3 *OutLineDir)
 {
 	// Nowa wersja
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	// Compute direction of intersection line
 	Cross(OutLineDir, GetPlaneNormal(Plane1), GetPlaneNormal(Plane2));
 
 	// If d is (near) zero, the planes are parallel (and separated)
-	// or coincident, so they’re not considered intersecting
+	// or coincident, so theyÂ’re not considered intersecting
 	float denom = Dot(*OutLineDir, *OutLineDir);
 	if (denom < FLOAT_EPSILON) return false;
 
 	// Compute point on intersection line
 	Cross(OutLineOrig, GetPlaneNormal(Plane1)*Plane2.d - GetPlaneNormal(Plane2)*Plane1.d, *OutLineDir);
-	// (Ksi¹¿ka mówi, ¿e gdyby p³aszczyzny by³y znormalizowane, niepotrzebne jest to dzielenie przez denom.)
+	// (KsiÂ¹Â¿ka mÃ³wi, Â¿e gdyby pÂ³aszczyzny byÂ³y znormalizowane, niepotrzebne jest to dzielenie przez denom.)
 	*OutLineOrig /= denom;
 	return true;
 
@@ -5249,8 +5248,8 @@ bool Intersect2Planes(const PLANE &Plane1, const PLANE &Plane2, VEC3 *OutLineOri
 	return true;*/
 }
 
-/* Stara wersja, sprawdzone ¿e dzia³a tak samo jak powy¿sza tylko wolniej i zwraca
-inny punkt na prostej (ale ten mo¿e byæ dowolny).
+/* Stara wersja, sprawdzone Â¿e dziaÂ³a tak samo jak powyÂ¿sza tylko wolniej i zwraca
+inny punkt na prostej (ale ten moÂ¿e byÃ¦ dowolny).
 
 bool PlaneToPlane(const PLANE &Plane1, const PLANE &Plane2, VEC3 *OutRayOrig, VEC3 *OutRayDir)
 {
@@ -5272,8 +5271,8 @@ bool PlaneToPlane(const PLANE &Plane1, const PLANE &Plane2, VEC3 *OutRayOrig, VE
 		if (FLOAT_ALMOST_ZERO(Det))
 			return false;
 		float InvDet = 1.0f / Det;
-		// Tu musia³em odwróciæ sk³adniki odejmowania celem skorygowania D,
-		// bo by³o uwzglêdniane odwrotnie ni¿ ja stosujê w swojej reprezentacji p³aszczyzny.
+		// Tu musiaÂ³em odwrÃ³ciÃ¦ skÂ³adniki odejmowania celem skorygowania D,
+		// bo byÂ³o uwzglÃªdniane odwrotnie niÂ¿ ja stosujÃª w swojej reprezentacji pÂ³aszczyzny.
 		float C0 = (N01*Plane2.d - N11*Plane1.d) * InvDet;
 		float C1 = (N01*Plane1.d - N00*Plane2.d) * InvDet;
 		*OutRayDir = cr;
@@ -5286,7 +5285,7 @@ bool PlaneToPlane(const PLANE &Plane1, const PLANE &Plane2, VEC3 *OutRayOrig, VE
 bool Intersect3Planes(const PLANE &P1, const PLANE &P2, const PLANE &P3, VEC3 *OutP)
 {
 	// Nowy algorytm
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 u; Cross(&u, GetPlaneNormal(P2), GetPlaneNormal(P3));
 	float denom = Dot(GetPlaneNormal(P1), u);
@@ -5302,7 +5301,7 @@ bool Intersect3Planes(const PLANE &P1, const PLANE &P2, const PLANE &P3, VEC3 *O
 	// |y|  =  | n2.x n2.y n2.z |  X  |d2|
 	// |z|     | n3.x n3.y n3.z |     |d3|
 
-	// Inny algorytm (albo inaczej zapisany) jest te¿ w ksi¹¿ce "3D Math Primer for Graphics and Game Development", str. 286.
+	// Inny algorytm (albo inaczej zapisany) jest teÂ¿ w ksiÂ¹Â¿ce "3D Math Primer for Graphics and Game Development", str. 286.
 
 	float fDet;
     float MN[9]  = { P1.a, P1.b, P1.c, P2.a, P2.b, P2.c, P3.a, P3.b, P3.c };
@@ -5387,7 +5386,7 @@ float SegmentToSegment_Signed2DTriArea(const VEC2 &a, const VEC2 &b, const VEC2 
 
 bool SegmentToSegment(const VEC2 &Seg1_Beg, const VEC2 &Seg1_End, const VEC2 &Seg2_Beg, const VEC2 &Seg2_End, float *OutSeg1_t)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	// Sign of areas correspond to which side of ab points Seg2_Beg and Seg2_End are
 	float a1 = SegmentToSegment_Signed2DTriArea(Seg1_Beg, Seg1_End, Seg2_End); // Compute winding of abd (+ or -)
@@ -5464,7 +5463,7 @@ bool IntersectLines(const VEC2 &p1, const VEC2 &p2, const VEC2 &p3, const VEC2 &
 	return true;
 }
 
-/* Pocz¹tek algorytmu TriangleToTriangle
+/* PoczÂ¹tek algorytmu TriangleToTriangle
 Autorzy: P. Guigue, O. Devillers */
 
 #define CHECK_MIN_MAX(p1,q1,r1,p2,q2,r2) {\
@@ -5716,11 +5715,11 @@ bool TriangleToFrustum(
 	const VEC3 &t1, const VEC3 &t2, const VEC3 &t3, const PLANE *OptTrianglePlane,
 	const FRUSTUM_PLANES &FrustumPlanes, const FRUSTUM_POINTS *OptFrustumPoints)
 {
-	// Algorytm wymyœli³em sam na podstawie Separating Axis Theorem.
+	// Algorytm wymyÂœliÂ³em sam na podstawie Separating Axis Theorem.
 
 	// Etap 1
 
-	// Ca³y trójk¹t le¿y po ujemnej stronie jednej z p³aszczyzn frustuma - odrzuæ
+	// CaÂ³y trÃ³jkÂ¹t leÂ¿y po ujemnej stronie jednej z pÂ³aszczyzn frustuma - odrzuÃ¦
 	for (uint i = 0; i < 6; i++)
 	{
 		if (
@@ -5752,7 +5751,7 @@ bool TriangleToFrustum(
 		FrustumPointsPtr = &FrustumPoints;
 	}
 
-	// Frustum nie przecina p³aszczyzny trójk¹ta - odrzuæ
+	// Frustum nie przecina pÂ³aszczyzny trÃ³jkÂ¹ta - odrzuÃ¦
 	if (ClassifyFrustumToPlane(*FrustumPointsPtr, *TrianglePlanePtr) != 0)
 		return false;
 
@@ -5764,8 +5763,8 @@ bool FrustumToFrustum(
 	const FRUSTUM_PLANES &Frustum2_Planes, const FRUSTUM_POINTS &Frustum2_Points)
 {
 	// Na podstawie Separating Axis Theorem:
-	// Dwa frustumy nie zachodz¹ na siebie wtedy i tylko wtedy, gdy wszystkie punkty
-	// jednego z nich le¿¹ po ujemnej stronie jednej z p³aszczyzn drugiego.
+	// Dwa frustumy nie zachodzÂ¹ na siebie wtedy i tylko wtedy, gdy wszystkie punkty
+	// jednego z nich leÂ¿Â¹ po ujemnej stronie jednej z pÂ³aszczyzn drugiego.
 
 	for (uint i = 0; i < 6; i++)
 		if (ClassifyFrustumToPlane(Frustum2_Points, Frustum1_Planes[i]) < 0)
@@ -5776,14 +5775,14 @@ bool FrustumToFrustum(
 
 	return true;
 
-	// Inny, ale niekoniecznie szybszy algorytm znajduje siê w ksi¹¿ce ShaderX, tom 3, rozdz. 5.4, str. 437.
+	// Inny, ale niekoniecznie szybszy algorytm znajduje siÃª w ksiÂ¹Â¿ce ShaderX, tom 3, rozdz. 5.4, str. 437.
 }
 
 bool SphereToCapsule(
 	const VEC3 &SphereCenter, float SphereRadius,
 	const VEC3 &CapsuleBeg, const VEC3 &CapsuleEnd, float CapsuleRadius)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	// Compute (squared) distance between sphere center and capsule line segment
 	float dist2 = PointToSegmentDistanceSq(SphereCenter, CapsuleBeg, CapsuleEnd);
@@ -5797,7 +5796,7 @@ bool CapsuleToCapsule(
 	const VEC3 &Capsule1_Beg, const VEC3 &Capsule1_End, float Capsule1_Radius,
 	const VEC3 &Capsule2_Beg, const VEC3 &Capsule2_End, float Capsule2_Radius)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	// Compute (squared) distance between the inner structures of the capsules
 	float s, t;
@@ -5815,8 +5814,8 @@ bool PointInConvexPolygon(const VEC2 &Point, const VEC2 PolygonPoints[], size_t 
 
 bool PointInConvexPolygon(const VEC2 &Point, const void *PolygonPoints, size_t PolygonPointCount, ptrdiff_t PolygonPointStride)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
-	// Algorytm ma z³o¿onoœæ O(log n) !!!
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
+	// Algorytm ma zÂ³oÂ¿onoÂœÃ¦ O(log n) !!!
 	
 	assert(PolygonPointCount >= 3);
 	
@@ -5853,7 +5852,7 @@ bool PointInPolygon(const VEC2 &Point, const VEC2 PolygonPoints[], size_t Polygo
 bool PointInPolygon(const VEC2 &Point, const void *PolygonPoints, size_t PolygonPointCount, ptrdiff_t PolygonPointStride)
 {
 	// Na podstawie:
-	// Point-In-Polygon Algorithm — Determining Whether A Point Is Inside A Complex Polygon. Darel Rex Finley.
+	// Point-In-Polygon Algorithm Â— Determining Whether A Point Is Inside A Complex Polygon. Darel Rex Finley.
 	// http://www.alienryderflex.com/polygon/
 
 	assert(PolygonPointCount >= 3);
@@ -5924,7 +5923,7 @@ bool RayToConvexPolygon(
 	float fnz = fabsf(Plane->c);
 	size_t low = 0, high = PolygonPointCount;
 
-	// Najwiêkszy jest X - rzut na p³aszczyznê YZ
+	// NajwiÃªkszy jest X - rzut na pÂ³aszczyznÃª YZ
 	if (fnx > fny && fnx > fnz)
 	{
 		do {
@@ -5948,7 +5947,7 @@ bool RayToConvexPolygon(
 			VEC2( ((VEC3*)((const char*)PolygonPoints+high*PolygonPointStride))->y, ((VEC3*)((const char*)PolygonPoints+high*PolygonPointStride))->z ),
 			VEC2(OutPoint->y, OutPoint->z));
 	}
-	// Najwiêkszy jest Z - rzut na p³aszczyznê XY
+	// NajwiÃªkszy jest Z - rzut na pÂ³aszczyznÃª XY
 	else if (fnz > fny)
 	{
 		do {
@@ -5972,7 +5971,7 @@ bool RayToConvexPolygon(
 			VEC2( ((VEC3*)((const char*)PolygonPoints+high*PolygonPointStride))->x, ((VEC3*)((const char*)PolygonPoints+high*PolygonPointStride))->y ),
 			VEC2(OutPoint->x, OutPoint->y));
 	}
-	// Najwiêkszy jest Y - rzut na p³aszczyznê XZ
+	// NajwiÃªkszy jest Y - rzut na pÂ³aszczyznÃª XZ
 	else
 	{
 		do {
@@ -6010,8 +6009,8 @@ bool RayToPolygon(
 }
 
 /*
-Funkcja by³a testowana tylko dla przypadku gdy abs(Plane.Normal.y) najwiêksze czyli p³aszczyzna le¿y w XZ,
-ale jeœli siê nigdzie nie pomyli³em przy zamianie wspó³rzêdnych przy kopiowaniu to powinna dzia³aæ wszêdzie.
+Funkcja byÂ³a testowana tylko dla przypadku gdy abs(Plane.Normal.y) najwiÃªksze czyli pÂ³aszczyzna leÂ¿y w XZ,
+ale jeÂœli siÃª nigdzie nie pomyliÂ³em przy zamianie wspÃ³Â³rzÃªdnych przy kopiowaniu to powinna dziaÂ³aÃ¦ wszÃªdzie.
 */
 bool RayToPolygon(
 	const VEC3 &RayOrig, const VEC3 &RayDir,
@@ -6048,7 +6047,7 @@ bool RayToPolygon(
 	size_t i, j = 0;
 	bool OddNodes = false;
 
-	// Najwiêkszy jest X - rzut na p³aszczyznê YZ
+	// NajwiÃªkszy jest X - rzut na pÂ³aszczyznÃª YZ
 	if (fnx > fny && fnx > fnz)
 	{
 		for (i = 0; i < PolygonPointCount; i++)
@@ -6069,7 +6068,7 @@ bool RayToPolygon(
 		}
 		return OddNodes;
 	}
-	// Najwiêkszy jest Z - rzut na p³aszczyznê XY
+	// NajwiÃªkszy jest Z - rzut na pÂ³aszczyznÃª XY
 	else if (fnz > fny)
 	{
 		for (i = 0; i < PolygonPointCount; i++)
@@ -6090,7 +6089,7 @@ bool RayToPolygon(
 		}
 		return OddNodes;
 	}
-	// Najwiêkszy jest Y - rzut na p³aszczyznê XZ
+	// NajwiÃªkszy jest Y - rzut na pÂ³aszczyznÃª XZ
 	else
 	{
 		for (i = 0; i < PolygonPointCount; i++)
@@ -6115,7 +6114,7 @@ bool RayToPolygon(
 
 bool SweptSphereToPlane(const VEC3 &SphereCenter, float SphereRadius, const VEC3 &SphereSweepDir, const PLANE &Plane, float *OutT0, float *OutT1)
 {
-	// Inna wersja, ale zwracaj¹ca tylko jedno t, jest w ksi¹¿ce:
+	// Inna wersja, ale zwracajÂ¹ca tylko jedno t, jest w ksiÂ¹Â¿ce:
 	// Real-Time Collision Detection, Christer Ericson, rozdz. 5.5.3, str. 221.
 
 	float b_dot_n = DotCoord(Plane, SphereCenter);
@@ -6148,8 +6147,8 @@ bool SweptSphereToPlane(const VEC3 &SphereCenter, float SphereRadius, const VEC3
 
 bool SweptSphereToFrustum(const VEC3 &SphereCenter, float SphereRadius, const VEC3 &SphereSweepDir, const FRUSTUM_PLANES &Frustum)
 {
-	// Funkcja na podstawie: PracticalPSM - przyk³adowy program autorstwa nVidia Coroporation.
-	// Ale znacznie ulepszona, bo tam by³a napisana beznadziejnie!
+	// Funkcja na podstawie: PracticalPSM - przykÂ³adowy program autorstwa nVidia Coroporation.
+	// Ale znacznie ulepszona, bo tam byÂ³a napisana beznadziejnie!
 
     // algorithm -- get all 12 intersection points of the swept sphere with the view frustum
     // for all points >0, displace sphere along the sweep driection.  if the displaced sphere
@@ -6157,7 +6156,7 @@ bool SweptSphereToFrustum(const VEC3 &SphereCenter, float SphereRadius, const VE
 
 	float a, b;
 	VEC3 DisplacedSphereCenter;
-	float DisplacedSphereRadius = SphereRadius; // * 1.1f; // <- tak by³o w oryginale, ale WTF???
+	float DisplacedSphereRadius = SphereRadius; // * 1.1f; // <- tak byÂ³o w oryginale, ale WTF???
 
 	for (size_t i = 0; i < 6; i++)
 	{
@@ -6187,13 +6186,13 @@ bool SweptSphereToSphere(
 	const VEC3 &SphereSweepDir1,
 	float *OutT1, float *OutT2)
 {
-	// Inny algorytm, ale zwracaj¹cy tylko jedno t, jest w ksi¹¿ce:
+	// Inny algorytm, ale zwracajÂ¹cy tylko jedno t, jest w ksiÂ¹Â¿ce:
 	// Real-Time Collision Detection, Christer Ericson, rozdz. 5.5.5, str. 224.
 
-	// Algorytm na podstawie artyku³u "Simple Intersection Tests For Games", Miguel Gomez.
+	// Algorytm na podstawie artykuÂ³u "Simple Intersection Tests For Games", Miguel Gomez.
 	// Gamasutra, October 18, 1999
 	// http://www.gamasutra.com/features/19991018/Gomez_1.htm
-	// Dzia³a w oparciu o jakieœtam równanie kwadratowe.
+	// DziaÂ³a w oparciu o jakieÂœtam rÃ³wnanie kwadratowe.
 
 	// vector from A0 to B0
 	VEC3 AB = SphereCenter1 - SphereCenter2;
@@ -6212,7 +6211,7 @@ bool SweptSphereToSphere(
 	// constant term
 	float c = Dot(AB, AB) - rab * rab;
 
-	// (To by³o bez sensu, a bez tego te¿ dzia³a i to bardziej prawid³owo.)
+	// (To byÂ³o bez sensu, a bez tego teÂ¿ dziaÂ³a i to bardziej prawidÂ³owo.)
 	//// check if they're currently overlapping
 	//if (Dot(AB, AB) <= rab * rab)
 	//{
@@ -6234,9 +6233,9 @@ bool SweptSphereToSphere(
 
 bool SweptBoxToBox(const BOX &Box1, const BOX &Box2, const VEC3 &SweepDirBox1, float *OutT1, float *OutT2)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
-	// Exit early if ‘Box1’ and ‘Box2’ initially overlapping
+	// Exit early if Â‘Box1Â’ and Â‘Box2Â’ initially overlapping
 	if (BoxToBox(Box1, Box2)) {
 		*OutT1 = *OutT2 = 0.0f;
 		return true;
@@ -6268,10 +6267,10 @@ bool SweptBoxToBox(const BOX &Box1, const BOX &Box2, const VEC3 &SweepDirBox1, f
 
 	return true;
 
-/*	// Zmniejsz Box1 do pojedynczego poruszaj¹cego sie punktu (promienia),
+/*	// Zmniejsz Box1 do pojedynczego poruszajÂ¹cego sie punktu (promienia),
 	// a Box2 rozszerz o rozmiar Box1 (suma minkowskiego)
-	// W ten sposób problem sprowadza siê do kolizji Ray-Box.
-	// Algorytm wymyœli³em sam.
+	// W ten sposÃ³b problem sprowadza siÃª do kolizji Ray-Box.
+	// Algorytm wymyÂœliÂ³em sam.
 
 	VEC3 RayOrig; Box1.CalcCenter(&RayOrig);
 	VEC3 BoxExtend; Box1.GetSize(&BoxExtend);
@@ -6734,7 +6733,7 @@ void BoxBoundingPoints(BOX *box, const void *Data, size_t PointCount, ptrdiff_t 
 
 void SphereBoundingSpheres(VEC3 *OutCenter, float *OutRadius, const VEC3 &Center1, float Radius1, const VEC3 &Center2, float Radius2)
 {
-	// Na podstawie ksi¹¿ki: Real-Time Collision Detection, Christer Ericson
+	// Na podstawie ksiÂ¹Â¿ki: Real-Time Collision Detection, Christer Ericson
 
 	VEC3 d = Center2 - Center1;
 	float dist2 = LengthSq(d);
@@ -6923,7 +6922,7 @@ void CalcCovarianceMatrix(MATRIX33 *OutCov, const VEC3 Points[], size_t PointCou
 
 void CalcCovarianceMatrix(MATRIX33 *OutCov, const void *PointData, size_t PointCount, ptrdiff_t PointStride)
 {
-	/* Na podstawie ksi¹¿ki:
+	/* Na podstawie ksiÂ¹Â¿ki:
 	Real-Time Collision Detection, Christer Ericson */
 
 	assert(PointCount > 0);
@@ -6970,8 +6969,8 @@ void CalcCovarianceMatrix(MATRIX33 *OutCov, const void *PointData, size_t PointC
 	OutCov->_23 = OutCov->_32 = e12 * oon;
 }
 
-/* Funkcja pomocnicza, wewnêtrzna
-Na podstawie ksi¹¿ki:
+/* Funkcja pomocnicza, wewnÃªtrzna
+Na podstawie ksiÂ¹Â¿ki:
 Real-Time Collision Detection, Christer Ericson */
 void SymSchur2(const MATRIX33 &a, int p, int q, float &c, float &s)
 {
@@ -6991,7 +6990,7 @@ void SymSchur2(const MATRIX33 &a, int p, int q, float &c, float &s)
 }
 
 /*
-Na podstawie ksi¹¿ki:
+Na podstawie ksiÂ¹Â¿ki:
 Real-Time Collision Detection, Christer Ericson
 
 Computes the eigenvectors and eigenvalues of the symmetric matrix A using
@@ -7061,7 +7060,7 @@ void CalcEigenvaluesAndEigenvectors(MATRIX33 *InCovOutEigenvalues, MATRIX33 *Out
 void BoxBoundingSphere(VEC3 *SphereCenter, float *SphereRadius, const BOX &Box)
 {
 	Box.GetCenter(SphereCenter);
-	float Diagonal = Length(Box.Max - Box.Min); // Przek¹tna
+	float Diagonal = Length(Box.Max - Box.Min); // PrzekÂ¹tna
 	*SphereRadius = Diagonal / 2.f;
 }
 
@@ -7102,9 +7101,9 @@ void BoxBoundingSpheres(BOX *OutBox, const VEC3 SpheresCenter[], const float Sph
 
 void RandomPointInUnitSphere(VEC3 *Out, RandomGenerator &Rand)
 {
-	// Dla szeœcianu (-1,-1,-1)..(1,1,1) objêtoœæ to 8, dla sfery o promieniu 1 objêtoœæ to 4/3*PI ~= 4.18.
-	// Tak wiêc prawdopodobieñstwo wylosowania liczby spoza zakresu wynosi 0.4775.
-	// Tak wiêc oczekiwana liczba iteracji tutaj wynosi nieco poni¿ej 2.
+	// Dla szeÂœcianu (-1,-1,-1)..(1,1,1) objÃªtoÂœÃ¦ to 8, dla sfery o promieniu 1 objÃªtoÂœÃ¦ to 4/3*PI ~= 4.18.
+	// Tak wiÃªc prawdopodobieÃ±stwo wylosowania liczby spoza zakresu wynosi 0.4775.
+	// Tak wiÃªc oczekiwana liczba iteracji tutaj wynosi nieco poniÂ¿ej 2.
 	do
 	{
 		Out->x = Rand.RandFloat(-1.0f, 1.0f);
@@ -7116,9 +7115,9 @@ void RandomPointInUnitSphere(VEC3 *Out, RandomGenerator &Rand)
 
 void RandomPointInUnitCircle(VEC2 *Out, RandomGenerator &Rand)
 {
-	// Dla kwadatu (-1,-1)..(1,1) powierzchnia to 4, dla ko³a o promieniu 1 powierzchnia to PI ~= 3.14.
-	// Tak wiêc prawdopodobieñstwo wylosowania liczby spoza zakresu wynosi 0.215.
-	// Tak wiêc oczekiwana liczba iteracji tutaj wynosi poni¿ej 1.5.
+	// Dla kwadatu (-1,-1)..(1,1) powierzchnia to 4, dla koÂ³a o promieniu 1 powierzchnia to PI ~= 3.14.
+	// Tak wiÃªc prawdopodobieÃ±stwo wylosowania liczby spoza zakresu wynosi 0.215.
+	// Tak wiÃªc oczekiwana liczba iteracji tutaj wynosi poniÂ¿ej 1.5.
 	do
 	{
 		Out->x = Rand.RandFloat(-1.0f, 1.0f);
@@ -7133,18 +7132,18 @@ void RandomPointInCapsule(VEC3 *Out, const VEC3 &p1, const VEC3 &p2, float R, Ra
 	float Help = PI * R * R;
 	float SphereVolume = 4.0f/3.0f * R * Help;
 	float CylinderVolume = Help * Length(p_vec);
-	// Prawdopodobieñstwo wylosowania z kuli jest proporcjonalne do stosunku objêtoœci kuli do objêtoœci walca.
+	// PrawdopodobieÃ±stwo wylosowania z kuli jest proporcjonalne do stosunku objÃªtoÂœci kuli do objÃªtoÂœci walca.
 	float SphereProbability = SphereVolume / (SphereVolume + CylinderVolume);
 	float RandomNumber = Rand.RandFloat();
-	// Punkt z jednej z pó³kul
+	// Punkt z jednej z pÃ³Â³kul
 	if (RandomNumber <= SphereProbability)
 	{
 		// Losowy wektor
 		VEC3 RandomVec; RandomPointInUnitSphere(&RandomVec, Rand);
-		// Pó³kula przy p2
+		// PÃ³Â³kula przy p2
 		if (Dot(RandomVec, p_vec) > 0.0f)
 			*Out = p2 + RandomVec * R;
-		// Pó³kula przy p1
+		// PÃ³Â³kula przy p1
 		else
 			*Out = p1 + RandomVec * R;
 	}
